@@ -23,16 +23,27 @@ int main(int argc, char *argv[]) {
     char *root_dir = default_root;
     int port = 10000;
 
-    while ((c = getopt(argc, argv, "d:p:")) != -1)
+    while ((c = getopt(argc, argv, "d:p:t:b:s:")) != -1)
 	switch (c) {
 	case 'd':
 	    root_dir = optarg;
+		printf("d: %s\n", optarg);
 	    break;
 	case 'p':
 	    port = atoi(optarg);
+		printf("p: %s\n", optarg);
 	    break;
+	case 't':
+		printf("t: %s\n", optarg);
+		break;
+	case 'b':
+		printf("b: %s\n", optarg);
+		break;
+	case 's':
+		printf("s: %s\n", optarg);
+		break;
 	default:
-	    fprintf(stderr, "usage: wserver [-d basedir] [-p port]\n");
+	    fprintf(stderr, "usage: wserver [-d basedir] [-p port] [-t threads] [-b buffers] [-s schedalg]\n");
 	    exit(1);
 	}
 
