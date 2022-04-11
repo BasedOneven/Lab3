@@ -1,0 +1,2 @@
+void enqueue();
+void dequeue();
