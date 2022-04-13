@@ -2,7 +2,10 @@
 #include <pthread.h>
 #include "queue.h"
 
-int main(int argc, char *argv[]) {
-    enqueue();
-    dequeue();
+queue_t* queue;
+
+int main(int argc, char *argv[]) 
+{
+    Queue_Init(queue);
+    Enqueue(queue, 5);
 }
