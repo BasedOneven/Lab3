@@ -15,10 +15,8 @@ void *worker(void *arg) {
     pthread_mutex_lock(&m);
     while (Queue_Empty(&jobs))// if empty, no job to do
 	{
-		printf("Waiting for job\n");
 		pthread_cond_wait(&fill, &m); // wait for jobs
 	}
-	printf("Awake!\n");
 
     int fd;
     Queue_Dequeue(&jobs, &fd);
@@ -82,7 +80,6 @@ int main(int argc, char *argv[]) {
 	// create worker thread
 	thread_pool_init(worker_threads);
 
-	printf("Past init\n");
     // now, get to work
     int listen_fd = open_listen_fd_or_die(port);
     while (1) {
