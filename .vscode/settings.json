@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "queue.h": "c",
-        "pthread.h": "c"
+        "pthread.h": "c",
+        "type_traits": "c"
     }
 }

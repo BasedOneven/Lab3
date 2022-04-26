@@ -18,7 +18,6 @@ int main(int argc, char *argv[])
 
     pthread_create(&t1, NULL, addToQ, (void *)numToQ);
     pthread_create(&t2, NULL, removeFromQ, (void *)numToQ);
-
     pthread_join(t1, NULL);
     pthread_join(t2, NULL);
 
@@ -38,6 +37,7 @@ void *addToQ(void *a)
 
 void *removeFromQ(void *a)
 {
+    
     int arg = (int) a;
     Dequeue(queue, &arg);
 

@@ -12,7 +12,7 @@ void Queue_Init(queue_t *q) {
     pthread_mutex_init(&q->tail_lock, NULL);
 }
 
-void Enqueue(queue_t *q, int value) {
+void Queue_Enqueue(queue_t *q, int value) {
     node_t *tmp = malloc(sizeof(node_t));
     assert(tmp != NULL);
     tmp->value = value;
@@ -24,7 +24,7 @@ void Enqueue(queue_t *q, int value) {
     pthread_mutex_unlock(&q->tail_lock);
 }
 
-int Dequeue(queue_t *q, int *value) {
+int Queue_Dequeue(queue_t *q, int *value) {
     pthread_mutex_lock(&q->head_lock);
     node_t *tmp = q->head;
     node_t *new_head = tmp->next;
@@ -39,7 +39,7 @@ int Dequeue(queue_t *q, int *value) {
     return 0;
 }
 
-int Empty(queue_t *q)
+int Queue_Empty(queue_t *q)
 {
     return q->head->next == NULL;
 }
